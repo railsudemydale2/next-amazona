@@ -13,3 +13,4 @@ handler.get(async (req, res) => {
   res.send({ message: 'seeded succesfully' });
 });
 export default handler;
+
