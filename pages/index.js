@@ -1,12 +1,12 @@
 import {
-  Button,
-  Card,
-  CardActions,
-  CardActionArea,
-  CardContent,
-  CardMedia,
   Grid,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
   Typography,
+  CardActions,
+  Button,
 } from '@material-ui/core';
 import NextLink from 'next/link';
 import Layout from '../components/Layout';
