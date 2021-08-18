@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import {
@@ -19,9 +19,12 @@ import Product from '../../models/Product';
 import db from '../../utils/db';
 import axios from 'axios';
 import { Store } from '../../utils/Store';
+import { useRouter } from 'next/dist/client/router';
+
 
 export default function ProductScreen(props) {
-  const { dispatch }  = useContext(Store);
+  const router = useRouter();
+  const { dispatch } = useContext(Store);
   const { product } = props;
   const classes = useStyles();
   //   const router = useRouter();
@@ -32,11 +35,12 @@ export default function ProductScreen(props) {
   }
   const addToCartHandler = async () => {
     const { data } = await axios.get(`/api/products/${product._id}`);
-    if(data.countInStock <= 0) {
-        window.alert('Sorry. Product is out of stock');
-        return;
+    if (data.countInStock <= 0) {
+      window.alert('Sorry. Product is out of stock');
+      return;
     }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity: 1 } });
+    router.push('/cart');
   };
   return (
     <Layout title={product.name} description={product.description}>
