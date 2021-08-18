@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import dynamic from 'next/dynamic';
 import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
 import NextLink from 'next/link';
@@ -19,9 +20,10 @@ import {
   Card,
   List,
   ListItem,
+  Box,
 } from '@material-ui/core';
 
-export default function CartScreen() {
+function CartScreen() {
   const { state } = useContext(Store);
   const {
     cart: { cartItems },
@@ -37,8 +39,8 @@ export default function CartScreen() {
           Cart is empty. <NextLink href="/">Go shopping</NextLink>
         </div>
       ) : (
-        <Grid container spacing={1}>
-          <Grid item={true} md={9} xs={12}>
+        <Box item="true" container display="flex">
+          <Box item="true" md={9} xs={12}>
             <TableContainer>
               <Table>
                 <TableHead>
@@ -93,7 +95,7 @@ export default function CartScreen() {
                 </TableBody>
               </Table>
             </TableContainer>
-          </Grid>
+          </Box>
           <Grid md={3} xs={12}>
             <Card>
               <List>
@@ -112,8 +114,10 @@ export default function CartScreen() {
               </List>
             </Card>
           </Grid>
-        </Grid>
+        </Box>
       )}
     </Layout>
   );
 }
+
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });
