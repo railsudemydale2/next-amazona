@@ -21,5 +21,7 @@
   "devDependencies": {
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0"
-  }
+  },
+  "devServer": "webpack --config webpack.server.config.js --mode=development --watch",
+  "devClient": "webpack --mode=development --watch"
 }
