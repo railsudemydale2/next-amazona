@@ -10,5 +10,5 @@ export default function Shipping() {
     router.push('/login?redirect=/shipping');
   }
   // router.push('/login');
-  return <div>Shipping</div>;
+  return <div>Shipping page</div>;
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
 import {
@@ -7,7 +7,7 @@ import {
   Typography,
   Container,
   Link,
-  createTheme,
+  createMuiTheme,
   ThemeProvider,
   CssBaseline,
   Switch,
@@ -19,13 +19,14 @@ import {
 import useStyles from '../utils/styles';
 import { Store } from '../utils/Store';
 import Cookies from 'js-cookie';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function Layout({ title, description, children }) {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
-  const { darkMode, cart, UserInfo } = state;
-  const theme = createTheme({
+  const { darkMode, cart, userInfo } = state;
+  const theme = createMuiTheme({
     typography: {
       h1: {
         fontSize: '1.6rem',
@@ -103,7 +104,7 @@ export default function Layout({ title, description, children }) {
                   )}
                 </Link>
               </NextLink>
-              {UserInfo ? (
+              {userInfo ? (
                 <>
                   <Button
                     aria-controls="simple-menu"
@@ -111,7 +112,7 @@ export default function Layout({ title, description, children }) {
                     onClick={loginClickHandler}
                     className={classes.navbarButton}
                   >
-                    {UserInfo.name}
+                    {userInfo.name}
                   </Button>
                   <Menu
                     id="simple-menu"
@@ -122,7 +123,7 @@ export default function Layout({ title, description, children }) {
                   >
                     <MenuItem onClick={loginMenuCloseHandler}>Profile</MenuItem>
                     <MenuItem onClick={loginMenuCloseHandler}>
-                      MyAccount
+                      My account
                     </MenuItem>
                     <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
                   </Menu>
