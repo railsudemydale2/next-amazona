@@ -16,6 +16,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useSnackbar } from 'notistack';
+// import CheckoutWizard from '../components/CheckoutWizard';
 import CheckoutWizard from '../components/CheckoutWizard';
 
 export default function Payment() {

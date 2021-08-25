@@ -27,6 +27,7 @@ import useStyles from '../utils/styles';
 import { useSnackbar } from 'notistack';
 import { getError } from '../utils/error';
 import Cookies from 'js-cookie';
+// import CheckoutWizard from '../components/CheckoutWizard';
 import CheckoutWizard from '../components/CheckoutWizard';
 
 function PlaceOrder() {
