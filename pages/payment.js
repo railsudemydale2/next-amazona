@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../utils/Store';
 import Layout from '../components/Layout';
-import CheckoutWizard from '../components/checkoutwizard';
+
 import useStyles from '../utils/styles';
 import {
   Button,
@@ -16,6 +16,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useSnackbar } from 'notistack';
+import CheckoutWizard from '../components/CheckoutWizard';
 
 export default function Payment() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -32,7 +33,7 @@ export default function Payment() {
     } else {
       setPaymentMethod(Cookies.get('paymentMethod') || '');
     }
-  }, []);
+  }, [router, shippingAddress.address]);
   const submitHandler = (e) => {
     closeSnackbar();
     e.preventDefault();
