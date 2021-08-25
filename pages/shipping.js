@@ -12,7 +12,6 @@ import { Store } from '../utils/Store';
 import useStyles from '../utils/styles';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
-// import CheckoutWizard from '../components/CheckoutWizard';
 import CheckoutWizard from '../components/CheckoutWizard';
 
 export default function Shipping() {
@@ -37,16 +36,7 @@ export default function Shipping() {
     setValue('city', shippingAddress.city);
     setValue('postalCode', shippingAddress.postalCode);
     setValue('country', shippingAddress.country);
-  }, [
-    router,
-    setValue,
-    shippingAddress.address,
-    shippingAddress.city,
-    shippingAddress.country,
-    shippingAddress.fullName,
-    shippingAddress.postalCode,
-    userInfo,
-  ]);
+  }, []);
 
   const classes = useStyles();
   const submitHandler = ({ fullName, address, city, postalCode, country }) => {
