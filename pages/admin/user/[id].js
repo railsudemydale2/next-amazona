@@ -224,3 +224,4 @@ export async function getServerSideProps({ params }) {
 }
 
 export default dynamic(() => Promise.resolve(UserEdit), { ssr: false });
+
