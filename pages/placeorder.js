@@ -23,10 +23,11 @@ import {
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import useStyles from '../utils/styles';
-import CheckoutWizard from '../components/CheckoutWizard';
+
 import { useSnackbar } from 'notistack';
 import { getError } from '../utils/error';
 import Cookies from 'js-cookie';
+import CheckoutWizard from '../components/CheckoutWizard';
 
 function PlaceOrder() {
   const classes = useStyles();
